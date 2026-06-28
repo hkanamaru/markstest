@@ -16,7 +16,20 @@
 docker compose up -d
 ```
 
-起動後、ブラウザで http://localhost:8080 にアクセスしてWordPressの初期設定を行う。
+起動後、ブラウザで http://localhost:8080 にアクセスしてWordPressの初期設定を行う。（初回のみ）
+
+### データのインポート
+
+1. ツール　＞　インポートをクリック
+2. WordPress をクリック
+3．インポータ―を実行をクリック
+4. marks.WordPress.2026-06-28.xmlを選択してインポート
+
+### 固定ページの作成（contactが表示されない場合）
+
+1. 固定ページ　＞　新規作成をクリック
+2. 編集画面の一番上のページタイトル部分にcontactと入力して公開
+
 
 ## 停止
 
@@ -33,14 +46,40 @@ docker compose down -v
 ## ディレクトリ構成
 
 ```
-./
+marks-wp/
 ├── docker-compose.yml
-├── themes/
-└── plugins/
+├── marks.WordPress.2026-06-28.xml    # WordPressエクスポートデータ
+├── README.md
+├── plugins/
+│   ├── contact-form-7/               # 問い合わせフォーム用 
+│   ├── wordpress-importer/           # エクスポートデータのインポート用
+└── themes/
+    ├── index.php
+    └── marks-house-theme/
+        ├── style.css
+        ├── theme.json
+        ├── functions.php
+        ├── common.css                # 本社サイトのCSSをコピーしたもの
+        ├── nav-studio.css            #　本社サイトのCSSをコピーしたもの
+        ├── readme.txt
+        ├── images/                   # テーマ用画像
+        ├── parts/                    # 本社サイトのヘッダーフッターをコピーしたもの
+        │   ├── header.html
+        │   └── footer.html
+        ├── patterns/
+        │   ├── case-study.php
+        │   ├── cta-row-standalone.php
+        │   ├── faq.php
+        │   ├── intro-section.php
+        │   ├── merits.php
+        │   ├── simulation.php
+        │   ├── testimonials.php
+        │   └── use-cases.php
+        ├── templates/
+        │   ├── front-page.html       # LP用
+        │   └── page-contact.html     # コンタクトページ用
+        └── styles/
 ```
-
-`themes/` と `plugins/` フォルダはホストとコンテナが同期されるので、
-ローカルで編集した内容がすぐWordPressに反映される。
 
 ## DB接続情報
 
@@ -51,28 +90,6 @@ docker compose down -v
 | User | wordpress |
 | Password | wordpress_password |
 | Root Password | root_password |
-
-
-## 画像や固定ページが足りない場合
-
-### データのインポート
-
-管理画面ログイン後下記の手順を対応
-
-1. ツール　＞　インポートをクリック
-2. WordPress をクリック
-3．インポータ―を実行をクリック
-4. marks.WordPress.2026-06-28.xmlを選択してインポート
-
-
-### 画像のアップロード
-
-管理画面ログイン後下記の手順を対応
-
-1. メディアをクリック
-2. imagesディレクトリに入っている画像をアップロード
-3. 必要に応じてpatternsディレクトリ、templateディレクトリに入っているファイルのimgタグのsrcを編集
-
 
 
 # 制作方針
@@ -91,9 +108,11 @@ docker compose down -v
 
 ## 非エンジニアでも編集できる運用性
 
-エンジニアリソースが限られる組織環境を考慮し、マーケターや営業担当者がコードを書かずにコンテンツを更新できるよう、WordPressブロックエディタ（FSE）に対応したテーマとして実装しました。テキストの変更や画像の差し替えをブロックエディタ上で直感的に行える想定です。また、問い合わせフォームについても問い合わせプラグインを使用しているためだれでも内容を変更できるようにしています。最初に使用方法の説明等は必要ですが、日常的な運用コストを最小限に抑えられる設計となっています。
+エンジニアリソースが限られる組織環境を考慮し、マーケターや営業担当者がコードを書かずにコンテンツを更新できるよう、WordPressブロックエディタ（FSE）に対応したテーマとして実装しました。一部難しいところもありますが、テキストの変更や画像の差し替えをブロックエディタ上で直感的に行える想定です。また、問い合わせフォームについても問い合わせプラグインを使用しているためだれでも内容を変更できるようにしています。最初に非エンジニアへの変更方法の説明等は必要ですが、日常的な運用コストを最小限に抑えられる設計となっています。
 
-## 本体サイトとのソースコードの共有
+## その他申し送り
 
-header等は　https://marks-house.jp/　と同じソースコードを取り込んで使用する想定で作成しています。
+* header等は　https://marks-house.jp/　と同じソースコードを取り込んで使用する想定で作成しています。
 本体サイトがWordpressで作成されている前提にはなりますが、本体サイトのあるWordpress状に固定ページとして設置し、共通部分を共有して使うことでサイトデザインの変更等があった際のメンテナンスを最小限にしたいと考えています。今回は制作の都合上partsディレクトリ、common.css、nav-studio.cssとして格納しています。
+* 画像は元のfigjamのものに寄せつつフリー素材やAI生成で置き換えていますが、シミュレーションの箇所だけ調整が難しい・御社資料かとおもうのでそのまま使用させていただいています。
+* FigJamに記載なかったテキストについてはダミーで入れております。

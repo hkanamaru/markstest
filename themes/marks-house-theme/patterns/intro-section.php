@@ -10,7 +10,7 @@
 
   <!-- wp:image {"className":"intro-image","sizeSlug":"full","linkDestination":"none"} -->
   <figure class="wp-block-image size-full intro-image">
-    <img src="/wp-content/uploads/2026/06/lp-intro-img01.png" alt="駐車場サービスイメージ"/>
+    <img src="<?php echo get_template_directory_uri(); ?>lp-intro-img01.png" alt="駐車場サービスイメージ"/>
   </figure>
   <!-- /wp:image -->
 

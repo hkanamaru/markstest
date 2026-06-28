@@ -18,13 +18,13 @@
   
   <!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
   <figure class="wp-block-image size-full">
-    <img src="/wp-content/uploads/2026/06/lp-simu-image01.png" alt="収益シミュレーション表"/>
+    <img src="<?php echo get_template_directory_uri(); ?>lp-simu-image01.png" alt="収益シミュレーション表"/>
   </figure>
   <!-- /wp:image -->
 
   <!-- wp:image {"sizeSlug":"full","linkDestination":"none"} -->
   <figure class="wp-block-image size-full">
-    <img src="/wp-content/uploads/2026/06/lp-simu-image02.png" alt="収益を得るまでの流れ"/>
+    <img src="<?php echo get_template_directory_uri(); ?>lp-simu-image02.png" alt="収益を得るまでの流れ"/>
   </figure>
   <!-- /wp:image -->
 

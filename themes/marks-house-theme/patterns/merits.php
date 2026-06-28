@@ -43,7 +43,7 @@
       <!-- /wp:group -->
       <!-- wp:image {"className":"merit-image","sizeSlug":"full","linkDestination":"none"} -->
       <figure class="wp-block-image size-full merit-image">
-        <img src="/wp-content/uploads/2026/06/lp-merit-image01.png" alt="管理業務負担を93%削減"/>
+        <img src="<?php echo get_template_directory_uri(); ?>lp-merit-image01.png" alt="管理業務負担を93%削減"/>
       </figure>
       <!-- /wp:image -->
     </div>
@@ -73,7 +73,7 @@
       <!-- /wp:group -->
       <!-- wp:image {"className":"merit-image","sizeSlug":"full","linkDestination":"none"} -->
       <figure class="wp-block-image size-full merit-image">
-        <img src="/wp-content/uploads/2026/06/lp-merit-image02.png" alt="滞納保証"/>
+        <img src="<?php echo get_template_directory_uri(); ?>lp-merit-image02.png" alt="滞納保証"/>
       </figure>
       <!-- /wp:image -->
     </div>
@@ -103,7 +103,7 @@
       <!-- /wp:group -->
       <!-- wp:image {"className":"merit-image","sizeSlug":"full","linkDestination":"none"} -->
       <figure class="wp-block-image size-full merit-image">
-        <img src="/wp-content/uploads/2026/06/lp-merit-image03.png" alt="月極駐車場どっとこむのQRコード看板設置"/>
+        <img src="<?php echo get_template_directory_uri(); ?>lp-merit-image03.png" alt="月極駐車場どっとこむのQRコード看板設置"/>
       </figure>
       <!-- /wp:image -->
     </div>

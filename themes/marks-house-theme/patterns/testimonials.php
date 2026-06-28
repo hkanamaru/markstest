@@ -24,7 +24,7 @@
 
       <!-- wp:image {"className":"testimonial-photo","sizeSlug":"full","linkDestination":"none"} -->
       <figure class="wp-block-image size-full testimonial-photo">
-        <img src="/wp-content/uploads/2026/06/lp-testimonial-image01.png" alt="お客様写真"/>
+        <img src="<?php echo get_template_directory_uri(); ?>lp-testimonial-image01.png" alt="お客様写真"/>
       </figure>
       <!-- /wp:image -->
 
@@ -48,7 +48,7 @@
 
       <!-- wp:image {"className":"testimonial-photo","sizeSlug":"full","linkDestination":"none"} -->
       <figure class="wp-block-image size-full testimonial-photo">
-          <img src="/wp-content/uploads/2026/06/lp-testimonial-image02.png" alt="お客様写真"/>
+          <img src="<?php echo get_template_directory_uri(); ?>lp-testimonial-image02.png" alt="お客様写真"/>
       </figure>
       <!-- /wp:image -->
 

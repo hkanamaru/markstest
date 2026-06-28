@@ -134,13 +134,13 @@ img { max-width: 100%; height: auto; display: block; }
 
 .mv-inner {
   width: 100%;
-  max-width: 1000px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
   position: relative;
   padding: 20px;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 /* ===== イントロ ===== */
@@ -155,7 +155,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .intro-section .intro-image {
-  width: 630px;
+  width: 590px;
   height: auto;
   flex-shrink: 0;
   object-fit: cover;
@@ -170,7 +170,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .intro-section .intro-heading {
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 700;
   margin: 0;
   line-height: 1.4;
@@ -299,6 +299,15 @@ img { max-width: 100%; height: auto; display: block; }
   line-height: 1.7;
 }
 
+.case-text p .highlight {
+  background: #ffff00;
+  font-weight: bold;
+}
+
+/* case-after 初期非表示 */
+#case-after { display: none; }
+#case-before { display: flex; }
+
 /* ===== 収益シミュレーション ===== */
 .simulation-section {
   display: flex;
@@ -312,6 +321,19 @@ img { max-width: 100%; height: auto; display: block; }
 
 .simulation-section .wp-block-image { margin: 0 auto; }
 .simulation-section img { width: 100%; object-fit: cover; }
+
+.simulation-section .section-title-wrap h2,
+.simulation-section h2,
+.simulation-title {
+  text-align: left !important;
+  white-space: normal !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.simulation-section .wp-block-heading {
+  text-align: left !important;
+}
 
 /* ===== お客様の声 ===== */
 .testimonials-section {
@@ -552,6 +574,8 @@ img { max-width: 100%; height: auto; display: block; }
 
   .testimonial-box h3 {
     padding-left: 120px;
+    font-size: 20px;
+    min-height: 80px;
   } 
 
   .merit-heading {
@@ -580,14 +604,7 @@ img { max-width: 100%; height: auto; display: block; }
   .btn-teal-wrap, .btn-red-wrap, .btn-red-phone { width: 100%; }
 
   .section-title-wrap h2 { font-size: 28px; white-space: normal; }
-}
 
-/* case-after 初期非表示 */
-#case-after { display: none; }
-#case-before { display: flex; }
-
-/* ===== ヒーロー SP修正 ===== */
-@media (max-width: 768px) {
   .hero-section {
     height: auto !important;
     min-height: 500px;
@@ -607,22 +624,7 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 16px !important;
     margin-bottom: 8px !important;
   }
-}
 
-.simulation-section .section-title-wrap h2,
-.simulation-section h2,
-.simulation-title {
-  text-align: left !important;
-  white-space: normal !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.simulation-section .wp-block-heading {
-  text-align: left !important;
-}
-
-@media (max-width: 768px) {
   .simulation-section .section-title-wrap h2,
   .simulation-section h2,
   .simulation-title {

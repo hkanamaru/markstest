@@ -30,7 +30,7 @@
 
       <!-- wp:image {"className":"case-image","sizeSlug":"large","linkDestination":"none"} -->
       <figure class="wp-block-image size-large case-image">
-        <img src="https://harukakanamaru.wpcomstaging.com//wp-content/uploads/2026/06/lp-case-study-before.png" alt="草刈り前の土地"/>
+        <img src="<?php echo get_template_directory_uri(); ?>lp-case-study-before.png" alt="草刈り前の土地"/>
       </figure>
       <!-- /wp:image -->
 
@@ -52,7 +52,7 @@
 
       <!-- wp:image {"className":"case-image","sizeSlug":"large","linkDestination":"none"} -->
       <figure class="wp-block-image size-large case-image">
-        <img src="https://harukakanamaru.wpcomstaging.com//wp-content/uploads/2026/06/lp-case-study-after.png" alt="整備後の駐車場"/>
+        <img src="<?php echo get_template_directory_uri(); ?>lp-case-study-after.png" alt="整備後の駐車場"/>
       </figure>
       <!-- /wp:image -->
 
