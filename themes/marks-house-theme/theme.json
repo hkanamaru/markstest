@@ -1,0 +1,121 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 2,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "primary-red", "color": "#FF383C", "name": "Primary Red" },
+        { "slug": "dark-red", "color": "#C20000", "name": "Dark Red" },
+        { "slug": "cta-red-start", "color": "#EB4654", "name": "CTA Red Start" },
+        { "slug": "cta-red-end", "color": "#AA181B", "name": "CTA Red End" },
+        { "slug": "accent-teal-start", "color": "#71DEE8", "name": "Teal Start" },
+        { "slug": "accent-teal-end", "color": "#3EA2AD", "name": "Teal End" },
+        { "slug": "teal-dark", "color": "#004B53", "name": "Teal Dark" },
+        { "slug": "light-red-bg", "color": "#FFE9E9", "name": "Light Red Background" },
+        { "slug": "black", "color": "#000000", "name": "Black" },
+        { "slug": "dark-gray", "color": "#242424", "name": "Dark Gray" },
+        { "slug": "mid-gray", "color": "#CECECE", "name": "Mid Gray" },
+        { "slug": "white", "color": "#FFFFFF", "name": "White" },
+        { "slug": "overlay-dark", "color": "rgba(0,0,0,0.42)", "name": "Dark Overlay" }
+      ],
+      "custom": true,
+      "customDuotone": false,
+      "customGradient": true,
+      "gradients": [
+        {
+          "slug": "teal-gradient",
+          "gradient": "linear-gradient(to bottom, #71DEE8 0%, #3EA2AD 100%)",
+          "name": "Teal Gradient"
+        },
+        {
+          "slug": "red-gradient",
+          "gradient": "linear-gradient(to bottom, #EB4654 0%, #AA181B 100%)",
+          "name": "Red Gradient"
+        }
+      ]
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Noto Sans JP', 'Noto Sans', sans-serif",
+          "slug": "noto-sans",
+          "name": "Noto Sans JP"
+        }
+      ],
+      "fontSizes": [
+        { "slug": "small",  "size": "14px", "name": "Small" },
+        { "slug": "normal", "size": "16px", "name": "Normal" },
+        { "slug": "medium", "size": "20px", "name": "Medium" },
+        { "slug": "large",  "size": "24px", "name": "Large" },
+        { "slug": "x-large","size": "32px", "name": "X-Large" },
+        { "slug": "heading","size": "36px", "name": "Heading" },
+        { "slug": "hero",   "size": "48px", "name": "Hero" },
+        { "slug": "section","size": "40px", "name": "Section Title" }
+      ],
+      "customFontSize": true
+    },
+    "spacing": {
+      "spacingSizes": [
+        { "slug": "20", "size": "20px", "name": "20" },
+        { "slug": "24", "size": "24px", "name": "24" },
+        { "slug": "28", "size": "28px", "name": "28" },
+        { "slug": "48", "size": "48px", "name": "48" },
+        { "slug": "60", "size": "60px", "name": "60" },
+        { "slug": "120","size": "120px","name": "120" },
+        { "slug": "220","size": "220px","name": "220" }
+      ],
+      "padding": true,
+      "margin": true
+    },
+    "layout": {
+      "contentSize": "1000px",
+      "wideSize": "1440px"
+    },
+    "border": {
+      "color": true,
+      "radius": true,
+      "style": true,
+      "width": true
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "#FFFFFF",
+      "text": "#000000"
+    },
+    "typography": {
+      "fontFamily": "var(--wp--preset--font-family--noto-sans)",
+      "fontSize": "var(--wp--preset--font-size--normal)",
+      "fontWeight": "400"
+    },
+    "elements": {
+      "h1": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--hero)",
+          "fontWeight": "700"
+        }
+      },
+      "h2": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--section)",
+          "fontWeight": "700"
+        }
+      },
+      "h3": {
+        "typography": {
+          "fontSize": "var(--wp--preset--font-size--large)",
+          "fontWeight": "700"
+        }
+      },
+      "link": {
+        "color": { "text": "#000000" },
+        "typography": { "textDecoration": "none" }
+      }
+    },
+    "blocks": {
+      "core/separator": {
+        "color": { "text": "var(--wp--preset--color--primary-red)" }
+      }
+    }
+  }
+}

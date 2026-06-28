@@ -1,0 +1,812 @@
+/* =============================================
+   Common — Animations, Tablet + SP Header, Nav Drawer & Footer
+   ============================================= */
+
+/* ===== Studio CSS Override ===== */
+/* .sd.text sets display:flex;flex-direction:row — breaks <br> line breaks
+   in multi-line paragraphs. Override to block for proper text rendering. */
+p.sd.text {
+  display: block;
+}
+
+/* ===== Fade-in Animations ===== */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoomIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes zoomFrom {
+  from { opacity: 0; transform: scale(1.1); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes zoomFromLg {
+  from { opacity: 0; transform: scale(1.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ===== Page Transition ===== */
+
+.StudioCanvas > * > *:not(header):not(.nav-drawer):not([class*="ani-"]) {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.page-ready .StudioCanvas > * > *:not(header):not(.nav-drawer):not([class*="ani-"]) {
+  opacity: 1;
+}
+
+body.page-leaving .StudioCanvas > * > *:not(header):not(.nav-drawer) {
+  opacity: 0;
+  animation: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Specificity 0,3,0 — must beat .sd[data-s-*] { opacity:1 } in studio CSS */
+.StudioCanvas .sd[class*="ani-"] {
+  opacity: 0;
+}
+
+[class*="ani-fadeIn"].is-visible {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+[class*="ani-fadeInUp"].is-visible {
+  animation: fadeInUp 1s ease forwards;
+}
+
+[class*="ani-zoomIn"].is-visible {
+  animation: zoomIn 1s ease forwards;
+}
+[class*="ani-zoomFrom"].is-visible {
+  animation: zoomFrom 0.6s ease forwards;
+}
+[class*="ani-zoomFromLg"].is-visible {
+  animation: zoomFromLg 0.6s ease forwards;
+}
+
+/* ===== Nav Active State ===== */
+.sd.is-active,
+.nav-drawer__link.is-active,
+.nav-drawer__btn-label.is-active {
+  color: #e60012 !important;
+}
+
+/* ===== PC + Tablet Header — sticky (>480px) ===== */
+/* SP header (≤480px) is already sticky via nav-studio.css */
+header.sd[data-s-913c597c-5440-419a-9c76-8d13f8b7636a] {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-pc__logos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex:0 0 20%;
+}
+.header-pc__jpx{
+  width: 70px;
+  padding: 3% 0;
+  text-align: right;
+}
+  .header-pc__jpx .header-pc__logo-jpx{
+    width: 80%;
+    height:auto;
+    margin:0 0 0 auto;
+  }
+
+/* ===== Tablet Header (481-768px) ===== */
+
+.header-tablet {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 20px 0 0; /* left is on studio wrapper (ca00a871), right added here */
+}
+.header-tablet__logos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex:0 0 20%;
+}
+.header-tablet__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-decoration: none;
+  width: 60px;
+  flex: none;
+}
+
+.header-tablet__logo-mark {
+  width: 60px;
+  height: auto;
+}
+
+.header-tablet__logo-text {
+  width: 100%;
+  height: auto;
+}
+.header-tablet__jpx{
+  width: 70px;
+  padding: 3% 0;
+  text-align: right;
+}
+  .header-tablet__jpx .header-tablet__logo-jpx{
+    width: 80%;
+    height:auto;
+    margin:0 0 0 auto;
+  }
+.header-tablet__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex: none;
+}
+
+.header-tablet__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF0000;
+  padding: 16px 24px;
+  text-decoration: none;
+  flex: none;
+}
+
+.header-tablet__cta-text {
+  color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header-tablet__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  flex: none;
+}
+
+.header-tablet__hamburger-icon {
+  width: 24px;
+  height: auto;
+}
+
+.header-tablet__hamburger-icon--close {
+  display: none;
+}
+
+.header-tablet__hamburger.is-active .header-tablet__hamburger-icon--open {
+  display: none;
+}
+
+.header-tablet__hamburger.is-active .header-tablet__hamburger-icon--close {
+  display: block;
+}
+
+
+/* ===== SP Header (≤480px) ===== */
+
+.header-sp {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0; /* horizontal padding is on studio wrapper (2bf33485: 0 20px) */
+}
+.header-sp__logos{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex:0 0 30%;
+}
+@media screen and (max-width: 320px) {
+  .header-sp__logos{
+    flex:0 0 36%;
+  }
+}
+.header-sp__logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  text-decoration: none;
+  width: 44px;
+  flex: none;
+  margin-top: 1px;
+}
+
+.header-sp__logo-mark {
+  width: 44px;
+  height: auto;
+}
+
+.header-sp__logo-text {
+  width: 100%;
+  height: auto;
+}
+.header-sp__jpx{
+  width: 50px;
+  padding: 3% 0;
+  text-align: right;
+}
+  .header-sp__jpx .header-sp__logo-jpx{
+    width: 80%;
+    height:auto;
+    margin:0 0 0 auto;
+  }
+.header-sp__actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex: none;
+}
+
+.header-sp__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF0000;
+  padding: 21px 16px;
+  text-decoration: none;
+  flex: none;
+}
+
+.header-sp__cta-text {
+  color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.header-sp__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0px;
+  flex: none;
+}
+
+.header-sp__hamburger-icon {
+  width: 24px;
+  height: auto;
+}
+
+.header-sp__hamburger-icon--close {
+  display: none;
+}
+
+.header-sp__hamburger.is-active .header-sp__hamburger-icon--open {
+  display: none;
+}
+
+.header-sp__hamburger.is-active .header-sp__hamburger-icon--close {
+  display: block;
+}
+
+
+/* ===== Nav Drawer (shared) ===== */
+
+.nav-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  z-index: 100;
+  display: none;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-drawer {
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.nav-drawer.is-open {
+  pointer-events: auto;
+}
+
+/* --- Panel (right-side drawer, 79% width) --- */
+
+.nav-drawer__panel {
+  position: relative;
+  width: 79%;
+  max-width: 79%;
+  height: auto;
+  max-height: 100%;
+  background: #f1f1f1;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 2;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  flex: none;
+}
+
+.nav-drawer.is-open .nav-drawer__panel {
+  transform: translateX(0);
+}
+
+/* --- Close button --- */
+
+.nav-drawer__header {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 20px 0 0;
+  flex: none;
+}
+
+.nav-drawer__close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 20px 0 0 0;
+}
+
+.nav-drawer__close-icon {
+  width: 24px;
+  height: 24px;
+}
+
+/* --- Nav links container --- */
+
+.nav-drawer__nav {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 30px;
+  gap: 10px;
+}
+
+/* --- Divider --- */
+
+.nav-drawer__divider {
+  width: 100%;
+  height: 1px;
+  background: #C5C5C5;
+  flex: none;
+}
+
+/* --- Direct link items --- */
+
+.nav-drawer__link {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  color: #000;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* --- Accordion items --- */
+
+.nav-drawer__item--accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-drawer__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-drawer__btn-label {
+  color: #000;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.nav-drawer__icon {
+  color: #333;
+  font-size: 24px;
+  user-select: none;
+}
+
+/* --- Submenu (collapsed by default, animated) --- */
+
+.nav-drawer__sub {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.nav-drawer__sub.is-open {
+  padding: 5px 0 12px;
+}
+
+.nav-drawer__sub-link {
+  color: #343434;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+/* --- CTA button --- */
+
+.nav-drawer__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF0000;
+  padding: 12px 0;
+  margin-top: 18px;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* --- Dark backdrop --- */
+
+.nav-drawer__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0;
+  border: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.nav-drawer.is-open .nav-drawer__backdrop {
+  opacity: 0.5;
+  pointer-events: auto;
+}
+
+
+/* ===== Display Toggle Overrides ===== */
+/* sf-hidden uses display:none!important, so overrides need !important */
+
+/* Tablet: show ca00a871 (tablet header row) at 481-768px */
+@media screen and (max-width: 768px) {
+  .sd[data-s-ca00a871-c401-42df-ab22-219648cd21af].sf-hidden {
+    display: flex !important;
+  }
+  /* SP footer: show 2d735bc8 at ≤768px */
+  .sd[data-s-2d735bc8-de38-47f8-b482-0ae77d67a60c].sf-hidden {
+    display: flex !important;
+  }
+}
+
+/* SP: show 2bf33485 (SP header) at ≤480px, hide ca00a871 */
+@media screen and (max-width: 480px) {
+  .sd[data-s-ca00a871-c401-42df-ab22-219648cd21af].sf-hidden {
+    display: none !important;
+  }
+  .sd[data-s-2bf33485-3494-47c3-9bfb-55417ed8c5c4].sf-hidden {
+    display: flex !important;
+  }
+}
+
+/* =============================================
+   SP Footer (≤768px)
+   ============================================= */
+
+/* --- Inner container --- */
+
+.footer-sp {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 0 30px;
+  width: 100%;
+}
+
+/* --- Logo --- */
+
+.footer-sp__logo {
+  display: flex;
+  flex-direction: column;
+  width: 70px;
+}
+
+.footer-sp__logo-mark {
+  width: 100%;
+  height: auto;
+}
+
+.footer-sp__logo-text {
+  width: 100%;
+  height: auto;
+}
+
+/* --- Nav section --- */
+
+.footer-sp__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* --- Divider --- */
+
+.footer-sp__divider {
+  width: 100%;
+  height: 1px;
+  background: #C5C5C5;
+  flex: none;
+}
+
+/* --- Direct link items --- */
+
+.footer-sp__link {
+  display: flex;
+  align-items: center;
+  height: 44px;
+  padding: 12px 0;
+  color: #000;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- Accordion items --- */
+
+.footer-sp__item--accordion {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-sp__btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 44px;
+  padding: 12px 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.footer-sp__btn-label {
+  color: #000;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.footer-sp__icon {
+  color: #333;
+  font-size: 24px;
+  user-select: none;
+}
+
+/* --- Submenu (collapsed by default, animated) --- */
+
+.footer-sp__sub {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.footer-sp__sub.is-open {
+  padding: 2px 0 12px;
+}
+
+.footer-sp__sub-link {
+  color: #343434;
+  text-decoration: none;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* --- CTA button --- */
+
+.footer-sp__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FF0000;
+  padding: 16px 0;
+  text-decoration: none;
+}
+
+.footer-sp__cta-text {
+  color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- Bottom black bar --- */
+
+.footer-sp__bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  padding: 26px 20px;
+  background: #000;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.footer-sp__bottom-links {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 26px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.footer-sp__bottom-link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+}
+
+.footer-sp__bottom-link-text {
+  color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.footer-sp__bottom-divider {
+  width: 100%;
+  height: 1px;
+  background: #C5C5C5;
+}
+
+.footer-sp__copyright {
+  color: #fff;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 22px;
+  text-align: left;
+  margin: 0;
+}
+
+
+/* ===== Footer SP — Mobile Overrides (≤480px) ===== */
+
+@media screen and (max-width: 480px) {
+  .footer-sp {
+    gap: 40px;
+    padding: 0 20px;
+  }
+
+  .footer-sp__nav {
+    gap: 12px;
+  }
+
+  .footer-sp__link {
+    font-size: 15px;
+  }
+
+  .footer-sp__btn-label {
+    font-size: 15px;
+  }
+
+  .footer-sp__sub {
+    gap: 20px;
+  }
+
+  .footer-sp__sub.is-open {
+    padding: 6px 0 12px;
+  }
+
+  .footer-sp__sub-link {
+    font-size: 13px;
+  }
+
+  .footer-sp__cta {
+    padding: 18px 0;
+  }
+
+  .footer-sp__cta-text {
+    font-size: 15px;
+  }
+
+  .footer-sp__bottom {
+    gap: 30px;
+    padding: 30px 20px;
+    align-items: center;
+  }
+
+  .footer-sp__bottom-links {
+    gap: 30px;
+    width: 100%;
+  }
+
+  .footer-sp__bottom-link-text {
+    font-size: 13px;
+    line-height: 1.0;
+  }
+
+  .footer-sp__copyright {
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+  }
+}
+
+/* ===== CTA Arrow: black → white on hover ===== */
+.cta-arrow-white {
+  display: none;
+  height: auto;
+  width: 10px;
+}
+a:hover .cta-arrow-black,
+.link:hover .cta-arrow-black {
+  display: none;
+}
+a:hover .cta-arrow-white,
+.link:hover .cta-arrow-white {
+  display: flex;
+}

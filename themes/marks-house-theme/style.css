@@ -1,0 +1,632 @@
+/*
+Theme Name: Marks House Theme
+Theme URI: https://marks-house.jp
+Author: Marks House
+Author URI: https://marks-house.jp
+Description: 駐車場サブリース企業向けWordPressブロックエディタテーマ。Figmaデザインをベースに構築。
+Version: 1.6.2
+Requires at least: 6.3
+Tested up to: 6.7
+Requires PHP: 8.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: marks-house
+*/
+
+/* Google Fonts: Noto Sans JP */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+/* ===== GLOBAL RESET ===== */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* ===== CTA ===== */
+.btn-teal {
+  background: linear-gradient(to bottom, #71DEE8 0%, #3EA2AD 100%);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 40px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-teal .badge {
+  background: #fff;
+  color: #004B53;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 6px;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+.btn-teal .btn-text {
+  font-size: 20px;
+  text-shadow: 0 0 6px #124a50;
+  white-space: nowrap;
+}
+
+.btn-red-phone {
+  background: linear-gradient(to bottom, #EB4654 0%, #AA181B 100%);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  width: 340px;
+  color: #fff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn-red-phone .phone-badge {
+  background: #fff;
+  color: #810004;
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 100px;
+  width: 85px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  line-height: 1.4;
+}
+
+.btn-red-phone .phone-number {
+  font-size: 32px;
+  text-shadow: 0 0 4px rgba(66,6,6,0.25);
+  line-height: 1.2;
+}
+
+.btn-red-phone .phone-hours {
+  font-size: 14px;
+  text-shadow: 0 0 4px rgba(66,6,6,0.25);
+}
+
+.cta-row {
+  display: flex;
+  gap: 24px;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0 ;
+  width: 100%;
+  margin: 0 auto 80px;
+}
+
+/* ===== セクション共通 ===== */
+.section-title-wrap {
+  border-bottom: 3px solid var(--wp--preset--color--primary-red, #FF383C);
+  padding-bottom: 6px;
+  margin-bottom: 28px;
+}
+
+.section-title-wrap h2 {
+  font-size: 40px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.sp {
+  display: none;
+}
+
+/* ===== MV ===== */
+
+.mv-inner {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+}
+
+/* ===== イントロ ===== */
+.intro-section {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 0;
+  max-width: 1000px;
+  margin: 80px auto;
+  width: 100%;
+}
+
+.intro-section .intro-image {
+  width: 630px;
+  height: auto;
+  flex-shrink: 0;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.intro-section .intro-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.intro-section .intro-heading {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.intro-section .intro-body {
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ===== 活用ケース ===== */
+.use-cases-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  width: 100%;
+}
+
+.use-cases-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.use-case-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  width: 30%;
+  overflow: hidden;
+}
+
+.use-case-card img {
+  width: 100%;
+  aspect-ratio: 214/142;
+  object-fit: cover;
+}
+
+.use-case-card p {
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+  margin: 0;
+  color: #000;
+  line-height: 1.4;
+}
+
+/* ===== Before/After ===== */
+.case-study-section {
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  width: 100%;
+}
+
+.case-study-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.before-after-tabs {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tab-before,
+.tab-after {
+  font-size: 24px;
+  font-weight: 700;
+  height: 58px;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px 6px 0 0;
+  border: none;
+  cursor: pointer;
+  background: #CECECE;
+  color: #242424;
+  font-family: 'Noto Sans JP', sans-serif;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.tab-before.is-active,
+.tab-after.is-active {
+  background: red;
+  color: #fff;
+  opacity: 1;
+}
+
+.case-content {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.case-image,
+.case-image img,
+.case-content img {
+  width: 360px;
+  height: 257px;
+  object-fit: cover !important;
+  flex-shrink: 0 !important;
+  max-width: none !important;
+}
+
+.case-text h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 28px;
+}
+
+.case-text p {
+  font-size: 16px;
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* ===== 収益シミュレーション ===== */
+.simulation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  width: 100%;
+}
+
+.simulation-section .wp-block-image { margin: 0 auto; }
+.simulation-section img { width: 100%; object-fit: cover; }
+
+/* ===== お客様の声 ===== */
+.testimonials-section {
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  width: 100%;
+}
+
+.testimonials-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.testimonial-row {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start !important;
+}
+
+.testimonial-row:nth-child(even) {
+  flex-direction: row-reverse !important;
+}
+
+.testimonial-box {
+  flex: 1;
+  border: 3px solid #242424;
+  border-radius: 6px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.testimonial-box h3 { font-size: 24px; font-weight: 700; margin: 0; color: #000; }
+.testimonial-box p  { font-size: 16px; margin: 0; line-height: 1.7; }
+
+.testimonial-photo {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.testimonial-photo img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ===== メリット ===== */
+.merit-section {
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  width: 100%;
+}
+
+.merit-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.merit-item {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  padding: 24px 0;
+}
+
+.merit-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 0 20px;
+}
+
+.merit-heading {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.merit-number {
+  color: #C20000;
+  font-size: 24px;
+  font-weight: 700;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.merit-title-text {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin: 0;
+}
+
+.merit-body {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #000;
+  margin: 0;
+}
+
+.merit-note {
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+}
+
+.merit-image img {
+  width: 350px;
+  height: 209px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* ===== FAQ ===== */
+.faq-section {
+  padding: 0;
+  max-width: 1000px;
+  margin: 0 auto 80px;
+  width: 100%;
+}
+
+.faq-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.faq-item {
+  width: 100%;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  background: #FFE9E9 !important;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 20px !important;
+  cursor: pointer;
+  user-select: none;
+}
+
+.faq-q-label,
+.faq-a-label {
+  color: #C20000;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin: 0 !important;
+}
+
+.faq-q-text {
+  flex: 1;
+  color: #000;
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 !important;
+}
+
+.faq-icon {
+  color: #C20000;
+  font-size: 24px;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  margin: 0 !important;
+}
+
+.faq-question.is-open .faq-icon { transform: rotate(45deg); }
+
+.faq-answer {
+  display: none !important;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 20px !important;
+}
+
+.faq-answer.is-open { display: flex !important; }
+
+.faq-a-text {
+  color: #000;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0 !important;
+}
+
+/* ===== レスポンシブ ===== */
+@media (max-width: 1000px) {
+  .intro-section,
+  .use-cases-section,
+  .case-study-section,
+  .simulation-section,
+  .testimonials-section,
+  .merit-section,
+  .faq-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .intro-section {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 768px) {
+  .sp { display: inline; }
+  .intro-section { flex-direction: column; }
+  .intro-section .intro-heading { font-size: 28px; }
+  .intro-section .intro-image { width: 100%; height: auto; }
+
+  .use-cases-row { flex-direction: column; gap: 40px;}
+  .use-case-card { width: 100%; }
+
+  .tab-before, .tab-after { font-size: 20px; }
+
+  .case-content { flex-direction: column; }
+  .case-image, .case-image img,.case-image h3, .case-content p { width: 100%; height: auto; }
+
+  .testimonial-row,.testimonial-row:nth-child(even) { position: relative; flex-direction: column !important; }
+
+  .testimonial-photo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  .testimonial-photo img { width: 100px; height: 100px; }
+
+  .testimonial-box h3 {
+    padding-left: 120px;
+  } 
+
+  .merit-heading {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0;
+  }
+  
+  .merit-text {padding: 0;}
+  .merit-item { flex-direction: column; }
+  .merit-image img { width: 100%; height: auto; }
+
+  .cta-row {
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: stretch;
+  }
+
+  .mv-inner .cta-row {
+    padding: 0;
+    margin-top: 34px;
+    margin-bottom: 0;
+  }
+
+  .btn-teal-wrap, .btn-red-wrap, .btn-red-phone { width: 100%; }
+
+  .section-title-wrap h2 { font-size: 28px; white-space: normal; }
+}
+
+/* case-after 初期非表示 */
+#case-after { display: none; }
+#case-before { display: flex; }
+
+/* ===== ヒーロー SP修正 ===== */
+@media (max-width: 768px) {
+  .hero-section {
+    height: auto !important;
+    min-height: 500px;
+  }
+  .mv-inner {
+    min-height: 669px;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+  }
+  .mv-inner h1 {
+    font-size: 32px !important;
+    margin-bottom: 12px !important;
+  }
+  .mv-inner p {
+    font-size: 16px !important;
+    margin-bottom: 8px !important;
+  }
+}
+
+.simulation-section .section-title-wrap h2,
+.simulation-section h2,
+.simulation-title {
+  text-align: left !important;
+  white-space: normal !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.simulation-section .wp-block-heading {
+  text-align: left !important;
+}
+
+@media (max-width: 768px) {
+  .simulation-section .section-title-wrap h2,
+  .simulation-section h2,
+  .simulation-title {
+    font-size: 28px !important;
+    white-space: normal !important;
+  }
+}
