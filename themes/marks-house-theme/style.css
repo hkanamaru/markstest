@@ -335,6 +335,103 @@ img { max-width: 100%; height: auto; display: block; }
   text-align: left !important;
 }
 
+.simu-cost-label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 12px;
+  width: 100%;
+}
+.simu-cost-label__main {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+}
+.simu-cost-label__sub {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+}
+
+.simu-cost-table {
+  display: flex;
+  width: 100%;
+}
+.simu-cost-table__col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.simu-cost-table__head {
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: #000;
+}
+.simu-cost-table__col--gray .simu-cost-table__head { background: #CECECE; }
+.simu-cost-table__col--red  .simu-cost-table__head { background: #FFCDCD; }
+
+.simu-cost-table__body {
+  padding: 20px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000;
+  border: 3px solid;
+}
+.simu-cost-table__col--gray .simu-cost-table__body { border-color: #CECECE; }
+.simu-cost-table__col--red  .simu-cost-table__body { border-color: #FFCDCD; }
+
+.simu-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #000;
+  margin: 0;
+  width: 100%;
+}
+
+.simu-result {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.simu-result__conditions {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #000;
+  white-space: nowrap;
+}
+.simu-result__conditions p { margin: 0; }
+
+.simu-result__arrow {
+  display: block;
+  height: 44px;
+  width: 44px;
+}
+
+.simu-result__arrow::after {
+  content: "";
+  display: block;
+  background-color: #ff1c1c;
+  height: calc(44px / 2 * tan(60deg));
+  width: 44px;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  rotate: 90deg;
+}
+
+.simu-result__income {
+  font-size: 20px;
+  line-height: 1.6;
+  color: #000;
+  white-space: nowrap;
+}
+.simu-result__income p { margin: 0; }
+.simu-result__income strong { color: #FF383C; font-weight: 700; }
+.simu-result__note { font-size: 16px; color: #000; }
+
 /* ===== お客様の声 ===== */
 .testimonials-section {
   padding: 0;
@@ -631,4 +728,13 @@ img { max-width: 100%; height: auto; display: block; }
     font-size: 28px !important;
     white-space: normal !important;
   }
+}
+
+
+
+@media (max-width: 768px) {
+  .simu-cost-label { flex-direction: column; gap: 4px; }
+  .simu-result { flex-direction: column; align-items: flex-start; gap: 10px;}
+  .simu-result__arrow { transform: rotate(90deg); align-self: center; }
+  .simu-result__conditions, .simu-result__income { white-space: normal; }
 }
